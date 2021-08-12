@@ -1,0 +1,196 @@
+<!DOCTYPE>
+<html>
+<head>
+    <title>WDF 4209</title>
+
+<!--    <link rel="stylesheet" href="css/4209.css" type="text/css">-->
+    <link rel="icon" href="img/favicon.png" type="img/icon">
+</head>
+<style type="text/css">
+    @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+
+    *{
+        box-sizing: border-box;
+
+        margin: 0;
+        padding: 0;
+    }
+
+    body{
+        height: 100vh;
+        background: url(img/1.png);
+        background-repeat: no-repeat;
+
+        margin: 0;
+        overflow: hidden;
+    }
+
+    section{
+        font-family: 'Satisfy', cursive;
+        width: 100vw;
+        height: 100vh;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /*background: #e3e4e8;*/
+    }
+
+    section .box{
+        position: absolute;
+        width: 450px;
+        height: 450px;
+
+        transform: translateX(200px);
+    }
+
+    section .box::before{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+                to right,
+                #000,
+                transparent
+        );
+
+        opacity: 0.1;
+        transform: rotate(45deg);
+        transform-origin: left;
+    }
+
+    section .box .circle{
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+        background: linear-gradient(
+                135deg,
+                #fff,
+                #e3e4e8
+        );
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        border-radius: 50%;
+        z-index: 1;
+    }
+
+    section .box .circle::before{
+        content: '';
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        right: 5px;
+        bottom: 5px;
+
+        background: linear-gradient(
+                315deg,
+                #fff,
+                #fff
+        );
+
+        border-radius: 50%;
+    }
+
+    section .box .circle h2{
+        position: absolute;
+        z-index: 2;
+        font-size: 4rem;
+        color: #ff2a2a;
+        text-align: center;
+    }
+
+    section i{
+        position: absolute;
+        background: #ff2a2a;
+        border-radius: 50%;
+
+        animation: myani linear infinite;
+    }
+
+    section i:nth-of-type(even){
+        background: transparent;
+        border: 1px solid #ff2a2a;
+    }
+
+    @keyframes myani {
+        0%{
+            transform: translateY(0);
+            opacity: 0;
+        }
+
+        10%{
+            opacity: 1;
+        }
+
+        90%{
+            opacity: 1;
+        }
+
+        100%{
+            transform: translateY(-2000%);
+            opacity: 0;
+        }
+    }
+
+    section .btn{
+        text-decoration: none;
+        color: #fff;
+        padding: 10px;
+        background: #ff2a2a;
+        border-radius: 10px;
+        font-size: 1.5rem;
+
+        position: absolute;
+        right: 2%;
+        bottom: 5%;
+    }
+</style>
+<body>
+
+    <section>
+        <div class="box">
+            <div class="circle">
+                <h2>Happy<br>Birthday<br>Sayar</h2>
+            </div>
+        </div>
+        <a href="#" class="btn">Team Page</a>
+    </section>
+
+
+
+    <script type="text/javascript">
+
+        function bubbles(){
+            let count = 200;
+            const section = document.querySelector('section');
+
+            for (let  i = 0; i < count; i++) {
+                const bubble = document.createElement('i');
+                const x = Math.floor(Math.random() * window.innerWidth);
+                const y = Math.floor(Math.random() * window.innerHeight);
+                const size = Math.random() * 10;
+
+                bubble.style.left = x+'px';
+                bubble.style.top = y+'px';
+                bubble.style.width = 1+size+'px';
+                bubble.style.height = 1+size+'px';
+
+                bubble.style.animationDuration = 5+size+'s';
+
+                section.appendChild(bubble);
+            }
+        }
+
+        bubbles();
+
+    </script>
+</body>
+</html>
